@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import { kommunicateAppId } from "./keys";
+
+(function(d, m){
+  var kommunicateSettings = {"appId":kommunicateAppId,"popupWidget":true,"automaticChatOpenOnNavigation":true};
+  var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+  s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+  var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+  window.kommunicate = m; m._globals = kommunicateSettings;
+})(document, window.kommunicate || {});
 
 class App extends Component {
   render() {
@@ -15,15 +24,6 @@ class App extends Component {
             Welcome to the PAB (Project Access Bot)
           </p>
         </header>
-
-        <iframe
-          id="chat"
-          allow="microphone;"
-          height="90%"
-          width="850"
-          src="https://console.dialogflow.com/api-client/demo/embedded/6d656c23-974f-46e6-b08c-96626ab9ea91"
-          title="dialogflow_chat"
-        />
       </div>
     );
   }
