@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <video autoPlay loop id="background-video">
+          <source src="background_video.mp4" type="video/mp4"/>
+        </video>
+
+        <header className="App-header">
+          <img src="logo.png" className="App-logo" alt="logo"/>
+          <p>
+            Welcome to the PAB (Project Access Bot)
+          </p>
+        </header>
+
+        <iframe
+          id="chat"
+          allow="microphone;"
+          height="90%"
+          width="850"
+          src="https://console.dialogflow.com/api-client/demo/embedded/6d656c23-974f-46e6-b08c-96626ab9ea91"
+          title="dialogflow_chat"
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
